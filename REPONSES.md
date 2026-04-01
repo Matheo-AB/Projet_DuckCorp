@@ -11,3 +11,27 @@
 - Classe abstraite (Machine) : On la choisit pour partager du code et un état (des champs comme condition, capacity). Elle définit ce que l'objet est.
 
 - Interface (Maintainable) : On la choisit pour définir une capacité ou un comportement que plusieurs classes, potentiellement issues de hiérarchies différentes, peuvent partager. Elle définit ce que l'objet peut faire.
+
+**Question (Ex4) :** Expliquez pourquoi canBeFulfilled(Stock<Duck> stock) serait une signature plus restrictive que canBeFulfilled(Stock<? extends Duck> stock). Donnez un exemple de code Java qui compilerait avec la seconde mais pas avec la première.
+
+- En Java, les génériques ne sont pas covariants. Cela signifie que même si StandardDuck est un Canard, un Stock<StandardDuck> n'est pas considéré comme un Stock<Duck>.
+
+- Avec Stock<Duck>, la méthode refuserait un stock qui ne contient spécifiquement que des StandardDuck.
+
+- Avec Stock<? extends Duck>, on accepte n'importe quel stock contenant des objets héritant de Duck via le joker "?" au début.
+
+**Exemple de code :**
+
+```
+Stock<StandardDuck> standardStock = new Stock<>();
+
+// ... remplissage du stock ...
+// Ne compilerait PAS avec Stock<Duck>
+// Compile avec Stock<? extends Duck>
+
+commande.canBeFulfilled(standardStock); 
+```
+
+**Question Ouverte (Ex5) :** Factory expose getMachines() qui retourne une List<Machine> non modifiable (via Collections.unmodifiableList()). Pourquoi ce choix ? Que se passerait-il si on retournait la liste interne directement ? Peut-on quand même modifier les machines elles-mêmes (via leurs méthodes) depuis l'extérieur ?
+
+- 
