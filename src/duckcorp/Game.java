@@ -2,7 +2,10 @@ package duckcorp;
 
 import duckcorp.duck.Duck;
 import duckcorp.factory.Factory;
+import duckcorp.machine.LuxuryMold;
 import duckcorp.machine.Machine;
+import duckcorp.machine.MiniPress;
+import duckcorp.machine.StandardPress;
 import duckcorp.order.Order;
 import duckcorp.order.OrderStatus;
 
@@ -14,7 +17,7 @@ import java.util.List;
  * Fichier fourni — ne pas modifier.
  * @author Roussille Philippe <roussille@3il.fr>
  */
-public class Game implements
+public class Game
     {
         private static final int    MAX_TURNS      = 8;
         private static final double INITIAL_BUDGET = 5_000.0;
