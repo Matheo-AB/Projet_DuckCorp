@@ -1,0 +1,3 @@
+**Question (Ex1) :** Une méthode default dans une interface peut-elle accéder aux champs privés de la classe qui l'implémente ? Justifiez, en vous appuyant sur isDefective() dans Qualifiable et getQualityScore() dans Duck.
+
+- Une interface ne peut pas accéder aux champs privés de la classe qui l'implémente. Par exemple pour la méthode isDefective(), elle ne peut pas lire le champ qualityScore qui sera stocké dans Duck. pour getQualityScore(), même chose.

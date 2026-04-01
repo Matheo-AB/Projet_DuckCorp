@@ -11,6 +11,8 @@ package duckcorp.duck;
  */
 public class MiniDuck extends Duck
     {
+        private static final double BASE_PRICE = 12.0;
+
         public MiniDuck(int qualityScore)
             {
                 super(DuckType.MINI, qualityScore);
@@ -19,12 +21,12 @@ public class MiniDuck extends Duck
         @Override
         public double getBasePrice()
             {
-                return 12.0;
+                return BASE_PRICE;
             }
 
         @Override
         public String describe()
             {
-                return "Canard en plastique miniature";
+                return "Mini Canard";
             }
     }

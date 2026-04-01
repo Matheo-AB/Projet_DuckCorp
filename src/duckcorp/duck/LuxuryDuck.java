@@ -11,6 +11,8 @@ package duckcorp.duck;
  */
 public class LuxuryDuck extends Duck
     {
+        private static final double BASE_PRICE = 80.0;
+
         public LuxuryDuck(int qualityScore)
             {
                 super(DuckType.LUXURY, qualityScore);
@@ -19,12 +21,12 @@ public class LuxuryDuck extends Duck
         @Override
         public double getBasePrice()
             {
-                return 80.0;
+                return BASE_PRICE;
             }
 
         @Override
         public String describe()
             {
-                return "Canard en plastique de luxe";
+                return "Canard de Luxe";
             }
     }
