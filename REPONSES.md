@@ -34,4 +34,7 @@ commande.canBeFulfilled(standardStock);
 
 **Question Ouverte (Ex5) :** Factory expose getMachines() qui retourne une List<Machine> non modifiable (via Collections.unmodifiableList()). Pourquoi ce choix ? Que se passerait-il si on retournait la liste interne directement ? Peut-on quand même modifier les machines elles-mêmes (via leurs méthodes) depuis l'extérieur ?
 
-- 
+- On utilise Collections.unmodifiableList() pour respecter le principe d'encapsulation.
+ Car si on retournait la liste interne, un code extérieur pourrait faire getMachines().clear(), supprimant toutes les machines de l'usine sans que la classe Factory ne puisse le contrôler.
+
+- Oui, on peut toujours modifier les machines elles-mêmes. La liste est "non modifiable" (on ne peut pas ajouter/retirer d'éléments), mais les références vers les machines restent les mêmes. On peut donc appeler machines.get(0).maintain() depuis l'extérieur, car l'objet Machine est mutable.

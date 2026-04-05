@@ -8,7 +8,6 @@ import duckcorp.machine.LuxuryMold;
 import duckcorp.machine.MiniPress;
 import duckcorp.machine.StandardPress;
 import duckcorp.order.Order;
-import duckcorp.order.OrderStatus;
 import duckcorp.stock.Stock;
 
 import java.util.*;

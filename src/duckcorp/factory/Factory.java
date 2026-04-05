@@ -1,5 +1,6 @@
 package duckcorp.factory;
 
+import duckcorp.bonus.DuckComparator;
 import duckcorp.duck.Duck;
 import duckcorp.machine.Machine;
 import duckcorp.order.Order;
@@ -157,8 +158,38 @@ public class Factory
          */
         public boolean fulfillOrder(Order order)
             {
-                // TODO
-                int quantity = order.getQuantity();
+                //TODO
+                if (!order.canBeFulfilled(this.stock))
+                    {
+                        return false;
+                    }
+
+                this.stock.getAll().sort(new DuckComparator());
+
+                List<Duck> shippedDucks = this.stock.remove(order.getDuckType(), order.getQuantity());
+
+                double totalQuality = 0;
+                for (Duck duck : shippedDucks)
+                    {
+                        totalQuality += duck.getQualityScore();
+                    }
+                double averageQuality = totalQuality / shippedDucks.size();
+
+                if (averageQuality >= 70)
+                    {
+                        this.reputation = Math.min(100, this.reputation + 3);
+                    }
+                else if (averageQuality >= 50)
+                    {
+                        this.reputation = Math.min(100, this.reputation + 1);
+                    }
+
+                this.budget += order.getTotalValue();
+
+                order.fulfill();
+                this.stats.recordSale(order);
+
+                return true;
             }
 
         // --- TODO (Bonus 1) ---
