@@ -29,7 +29,13 @@ public class ConcurrentProductionStats extends ProductionStats
             {
                 super();
                 // TODO
-                throw new UnsupportedOperationException("TODO : ConcurrentProductionStats()");
+                this.produced = new ConcurrentHashMap<>();
+                this.sold = new ConcurrentHashMap<>();
+                for (DuckType type : DuckType.values())
+                    {
+                        this.produced.put(type, 0);
+                        this.sold.put(type, 0);
+                    }
             }
 
         /**
@@ -40,6 +46,9 @@ public class ConcurrentProductionStats extends ProductionStats
         public void recordProduction(List<Duck> ducks)
             {
                 // TODO
-                throw new UnsupportedOperationException("TODO : ConcurrentProductionStats.recordProduction()");
+                for (Duck duck : ducks)
+                    {
+                        this.produced.merge(duck.getType(), 1, Integer::sum);
+                    }
             }
     }

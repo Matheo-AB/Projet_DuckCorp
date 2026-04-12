@@ -41,3 +41,9 @@ commande.canBeFulfilled(standardStock);
 
 
 **Question Ouverte (Bonus 1) :** En utilisant Stream, cela rend la méthode plus précise. Le code est plus lisible contrairement à l'approche Impérative qui est elle plus performante.
+
+**Question Ouverte (Bonus 3) :** Pourquoi ConcurrentHashMap ne suffit-il pas à garantir la cohérence globale dans un contexte multi-thread ?
+
+- ConcurrentHashMap permet le thread-safe car il effectue des opérations une à une. Il bloque la modification par plusieurs méthode en même temps. Ce qui garantie le bon fonctionnement des modifications.
+
+- Pour "ProductionQueue", on devrait utiliser put() & take(). Ce qui comme dans le système du Producteur & Consommateur bloque dans une file d'attente la méthode tant qu'un canard n'est pas disponible pour réaliser l'action.
