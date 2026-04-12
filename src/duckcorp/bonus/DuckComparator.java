@@ -1,7 +1,6 @@
 package duckcorp.bonus;
 
 import duckcorp.duck.Duck;
-
 import java.util.Comparator;
 
 /**
@@ -16,16 +15,17 @@ import java.util.Comparator;
  * entier dans des cas limites. Préférez une comparaison sûre.
  * @author Roussille Philippe <roussille@3il.fr>
  */
-public class DuckComparator implements Comparator<Duck> {
-
-    /**
-     * Compare deux canards par qualité croissante.
-     * Retourne un entier négatif si a est de moins bonne qualité que b,
-     * zéro s'ils ont la même qualité, positif sinon.
-     */
-    @Override
-    public int compare(Duck a, Duck b) {
-        // TODO
-        throw new UnsupportedOperationException("TODO : DuckComparator.compare()");
+public class DuckComparator implements Comparator<Duck>
+    {
+        /**
+         * Compare deux canards par qualité croissante.
+         * Retourne un entier négatif si a est de moins bonne qualité que b,
+         * zéro s'ils ont la même qualité, positif sinon.
+         */
+        @Override
+        public int compare(Duck a, Duck b)
+            {
+                // TODO
+                return Integer.compare(a.getQualityScore(), b.getQualityScore());
+            }
     }
-}
