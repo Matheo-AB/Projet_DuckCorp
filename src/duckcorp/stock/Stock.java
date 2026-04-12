@@ -2,8 +2,6 @@ package duckcorp.stock;
 
 import duckcorp.duck.Duck;
 import duckcorp.duck.DuckType;
-import duckcorp.factory.Factory;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;

@@ -38,3 +38,6 @@ commande.canBeFulfilled(standardStock);
  Car si on retournait la liste interne, un code extérieur pourrait faire getMachines().clear(), supprimant toutes les machines de l'usine sans que la classe Factory ne puisse le contrôler.
 
 - Oui, on peut toujours modifier les machines elles-mêmes. La liste est "non modifiable" (on ne peut pas ajouter/retirer d'éléments), mais les références vers les machines restent les mêmes. On peut donc appeler machines.get(0).maintain() depuis l'extérieur, car l'objet Machine est mutable.
+
+
+**Question Ouverte (Bonus 1) :** En utilisant Stream, cela rend la méthode plus précise. Le code est plus lisible contrairement à l'approche Impérative qui est elle plus performante.

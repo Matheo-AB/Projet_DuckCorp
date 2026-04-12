@@ -2,7 +2,6 @@ package duckcorp.stats;
 
 import duckcorp.duck.Duck;
 import duckcorp.duck.DuckType;
-
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.List;
 
@@ -20,25 +19,27 @@ import java.util.List;
  * Que faudrait-il ajouter ?
  * @author Roussille Philippe <roussille@3il.fr>
  */
-public class ConcurrentProductionStats extends ProductionStats {
+public class ConcurrentProductionStats extends ProductionStats
+    {
+        /**
+         * TODO : remplacez les Maps héritées par des Maps thread-safe,
+         * puis initialisez chaque entrée à 0 pour tous les DuckType.
+         */
+        public ConcurrentProductionStats()
+            {
+                super();
+                // TODO
+                throw new UnsupportedOperationException("TODO : ConcurrentProductionStats()");
+            }
 
-    /**
-     * TODO : remplacez les Maps héritées par des Maps thread-safe,
-     * puis initialisez chaque entrée à 0 pour tous les DuckType.
-     */
-    public ConcurrentProductionStats() {
-        super();
-        // TODO
-        throw new UnsupportedOperationException("TODO : ConcurrentProductionStats()");
+        /**
+         * TODO : surchargez recordProduction() pour incrémenter les compteurs
+         * de façon atomique, sans risque de race condition.
+         */
+        @Override
+        public void recordProduction(List<Duck> ducks)
+            {
+                // TODO
+                throw new UnsupportedOperationException("TODO : ConcurrentProductionStats.recordProduction()");
+            }
     }
-
-    /**
-     * TODO : surchargez recordProduction() pour incrémenter les compteurs
-     * de façon atomique, sans risque de race condition.
-     */
-    @Override
-    public void recordProduction(List<Duck> ducks) {
-        // TODO
-        throw new UnsupportedOperationException("TODO : ConcurrentProductionStats.recordProduction()");
-    }
-}
